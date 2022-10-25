@@ -1,12 +1,11 @@
-import User from "../../models/userModel.js";
-import ExerciseLog from "../../models/exerciseLogModel.js";
 import asyncHandler from "express-async-handler";
+import ExerciseLog from "../../models/exerciseLogModel.js";
+import User from "../../models/userModel.js";
 import WorkoutLog from "../../models/workoutLogModel.js";
 
-// @desc   Get user profile
-// @route  GET /api/users/profile
-// @access Private
-
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
 export const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).select("-password").lean();
 
@@ -16,7 +15,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
   });
 
   let countExerciseTimesCompleted = 0;
-  const kgs = 0;
+  let kgs = 0;
 
   exerciseLogByUser.forEach((log) => {
     countExerciseTimesCompleted += log.times.length;
@@ -33,5 +32,10 @@ export const getUserProfile = asyncHandler(async (req, res) => {
     completed: true,
   }).countDocuments();
 
-  res.json({ ...user, minutes, workouts, kgs });
+  res.json({
+    ...user,
+    minutes,
+    workouts,
+    kgs,
+  });
 });
