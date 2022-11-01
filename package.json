@@ -2,13 +2,13 @@
 	"name": "workout-app",
 	"version": "1.0.0",
 	"description": "",
-	"main": "backend/server.js",
+	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"start": "node back/server",
-		"server": "nodemon back/server",
-		"client": "npm run start --prefix front",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"server": "nodemon server/server",
+		"server-start": "node server/server",
+		"start": "concurrently \"npm run server-start\" \"npm run start --prefix client\"",
+		"dev": "concurrently \"npm run server\" \"npm run start --prefix client\""
 	},
 	"author": "Vadim (@NAF-FLY)",
 	"license": "ISC",

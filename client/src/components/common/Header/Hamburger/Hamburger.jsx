@@ -26,7 +26,7 @@ const Hamburger = () => {
 			<nav className={`${styles.menu} ${show ? styles.show : ''}`}>
 				<ul>
 					{menu.map((item, idx) => (
-						<li key={`_menu_${item}`}>
+						<li key={`_menu_${idx}`}>
 							<Link to={item.link}>{item.title}</Link>
 						</li>
 					))}

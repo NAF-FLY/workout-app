@@ -12,12 +12,8 @@ const Routes = () => {
 		<Router>
 			<Switch>
 				<Route path='/' element={<Home />} />
-			</Switch>
-			<Switch>
-				<Route path='/new-workout' element={<NewWorkout />} />
-			</Switch>
-			<Switch>
 				<Route path='/auth' element={<Auth />} />
+				<Route path='/new-workout' element={<NewWorkout />} />
 			</Switch>
 		</Router>
 	)
