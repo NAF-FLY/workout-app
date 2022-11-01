@@ -7,8 +7,6 @@ import bgImage from '../../../images/new-workout-bg.jpg'
 import Field from '../../ui/Field/Field'
 import Button from '../../ui/Button/Button'
 
-import styles from './NewWorkout.module.scss'
-
 const NewWorkout = () => {
 	const [name, setName] = useState('')
 	const [exercises, setExercises] = useState([])
