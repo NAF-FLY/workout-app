@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-
 import { menu } from './menuBase'
+
 import hamburgerImage from '../../../../images/header/hamburger.svg'
 import hamburgerCloseImage from '../../../../images/header/hamburger-close.svg'
 
@@ -28,7 +28,9 @@ const Hamburger = () => {
 				<img
 					src={isComponentVisible ? hamburgerCloseImage : hamburgerImage}
 					alt='Menu'
-					height='24px'
+					draggable={false}
+					height='24'
+					width='27'
 				/>
 			</button>
 			<nav
@@ -41,7 +43,7 @@ const Hamburger = () => {
 						</li>
 					))}
 					<li>
-						<button onClick={handleLogout}>Выйти</button>
+						<button onClick={handleLogout}>Logout</button>
 					</li>
 				</ul>
 			</nav>

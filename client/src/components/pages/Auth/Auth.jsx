@@ -29,7 +29,7 @@ const Auth = () => {
 		setPassword('')
 		setEmail('')
 
-		navigate.replace('/')
+		navigate('/')
 	}
 
 	const {
@@ -47,11 +47,7 @@ const Auth = () => {
 			}),
 		{
 			onSuccess(data) {
-				localStorage.setItem('token', data.token)
-				setIsAuth(true)
-
-				setPassword('')
-				setEmail('')
+				successLogin(data.token)
 			},
 		}
 	)
@@ -61,7 +57,7 @@ const Auth = () => {
 		isLoading: isLoadingAuth,
 		error: errorAuth,
 	} = useMutation(
-		'Auth',
+		['Registration'],
 		() =>
 			$api({
 				url: '/users/login',
