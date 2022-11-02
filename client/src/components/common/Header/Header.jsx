@@ -1,14 +1,19 @@
 import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+
 import Hamburger from './Hamburger/Hamburger'
+import { useAuth } from '../../../hooks/useAuth'
 
 import userImage from '../../../images/header/user.svg'
+import authImage from '../../../images/header/dumbbell.svg'
 import arrowImage from '../../../images/header/arrow.svg'
 import styles from './Header.module.scss'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 const Header = () => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
+
+	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
@@ -17,8 +22,11 @@ const Header = () => {
 					<img src={arrowImage} alt='arrow' />
 				</button>
 			) : (
-				<button type='button' onClick={() => navigate('/auth')}>
-					<img src={userImage} alt='Auth' />
+				<button
+					type='button'
+					onClick={() => navigate(isAuth ? '/profile' : '/auth')}
+				>
+					<img src={isAuth ? authImage : userImage} alt='Auth' height='40' />
 				</button>
 			)}
 			<Hamburger />

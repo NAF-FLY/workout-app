@@ -1,11 +1,11 @@
-import Home from '../pages/Home/Home'
+import Home from './components/pages/Home/Home'
 import {
 	BrowserRouter as Router,
 	Routes as Switch,
 	Route,
 } from 'react-router-dom'
-import NewWorkout from '../pages/NewWorkout/NewWorkout'
-import Auth from '../pages/Auth/Auth'
+import NewWorkout from './components/pages/NewWorkout/NewWorkout'
+import Auth from './components/pages/Auth/Auth'
 
 const Routes = () => {
 	return (

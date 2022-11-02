@@ -12,7 +12,7 @@ import { useMutation } from '@tanstack/react-query'
 
 import styles from './Auth.module.scss'
 import { $api } from '../../../api/api'
-// import { useAuth } from '../../../hooks/useAuth'
+import { useAuth } from '../../../hooks/useAuth'
 
 const Auth = () => {
 	const [email, setEmail] = useState('')
@@ -20,11 +20,11 @@ const Auth = () => {
 	const [type, setType] = useState('auth')
 
 	const navigate = useNavigate()
-	// const { setIsAuth } = useAuth()
+	const { setIsAuth } = useAuth()
 
 	const successLogin = token => {
 		localStorage.setItem('token', token)
-		// setIsAuth(true)
+		setIsAuth(true)
 
 		setPassword('')
 		setEmail('')
@@ -47,7 +47,11 @@ const Auth = () => {
 			}),
 		{
 			onSuccess(data) {
-				console.log(data)
+				localStorage.setItem('token', data.token)
+				setIsAuth(true)
+
+				setPassword('')
+				setEmail('')
 			},
 		}
 	)
