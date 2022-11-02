@@ -1,8 +1,8 @@
 import React from 'react'
-import Loading from '../../images/loader.svg'
+import img from '../../images/three-dots.svg'
 
 const Loader = () => {
-	return <img src={Loading} alt='loader' />
+	return <img src={img} alt='loader' draggable={false} />
 }
 
 export default Loader

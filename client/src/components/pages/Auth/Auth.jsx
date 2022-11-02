@@ -36,18 +36,21 @@ const Auth = () => {
 		mutate: register,
 		isLoading,
 		error,
-	} = useMutation({
-		mutationFn: () =>
+	} = useMutation(
+		['Registration'],
+		() =>
 			$api({
 				url: '/users',
 				type: 'POST',
 				body: { email, password },
 				auth: false,
 			}),
-		onSuccess(data) {
-			console.log(data)
-		},
-	})
+		{
+			onSuccess(data) {
+				console.log(data)
+			},
+		}
+	)
 
 	const {
 		mutate: auth,
