@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import ReactSelect from 'react-select'
+import { Link } from 'react-router-dom'
 import Layout from '../../common/Layout'
 
 import bgImage from '../../../images/new-workout-bg.jpg'
 import Field from '../../ui/Field/Field'
 import Button from '../../ui/Button/Button'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { $api } from '../../../api/api'
 import Alert from '../../ui/Alert/Alert'
 import Loader from '../../ui/Loader'
 
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { $api } from '../../../api/api'
+
 const NewWorkout = () => {
-	const [name, setName] = useState('')
-	const [exercisesCurrent, setExercisesCurrent] = useState([])
+	const [name, setName] = React.useState('')
+	const [exercisesCurrent, setExercisesCurrent] = React.useState([])
 
 	const { data, isSuccess } = useQuery(
-		['list exercise'],
+		['list exercises'],
 		() =>
 			$api({
 				url: '/exercises',
@@ -33,7 +34,7 @@ const NewWorkout = () => {
 		error,
 	} = useMutation(
 		['Create new workout'],
-		exIds =>
+		({ exIds }) =>
 			$api({
 				url: '/workouts',
 				type: 'POST',
@@ -59,7 +60,7 @@ const NewWorkout = () => {
 
 	return (
 		<>
-			<Layout bgImage={bgImage} heading='Create New Workout' />
+			<Layout bgImage={bgImage} heading='Create new workout' />
 			<div className='wrapper-inner-page'>
 				{error && <Alert type='error' text={error} />}
 				{isSuccessMutate && <Alert text='Workout created' />}
@@ -79,16 +80,15 @@ const NewWorkout = () => {
 							classNamePrefix='select2-selection'
 							placeholder='Exercises...'
 							title='Exercises'
-							options={[
-								{ value: 'sadfasdf', label: 'Push-ups' },
-								{ value: 'dsfasdaa', label: 'Pull-ups' },
-							]}
+							options={data.map(ex => ({
+								value: ex._id,
+								label: ex.name,
+							}))}
 							value={exercisesCurrent}
 							onChange={setExercisesCurrent}
 							isMulti={true}
-						></ReactSelect>
+						/>
 					)}
-
 					<Button text='Create' callback={() => {}} />
 				</form>
 			</div>

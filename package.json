@@ -7,8 +7,11 @@
 	"scripts": {
 		"server": "nodemon server/server",
 		"server-start": "node server/server",
-		"start": "concurrently \"npm run server-start\" \"npm run start --prefix client\"",
-		"dev": "concurrently \"npm run server\" \"npm run start --prefix client\""
+		"start": "concurrently --kill-others-on-fail \"npm run server-start\" \"npm run start --prefix client\"",
+		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+		"build": "cd client && npm run build",
+		"install-client": "cd client && npm install",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
 	},
 	"author": "Vadim (@NAF-FLY)",
 	"license": "ISC",
@@ -18,8 +21,7 @@
 		"express": "^4.17.1",
 		"express-async-handler": "^1.2.0",
 		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.12.13",
-		"node-polyfill-webpack-plugin": "^2.0.1"
+		"mongoose": "^5.12.13"
 	},
 	"devDependencies": {
 		"colors": "^1.4.0",

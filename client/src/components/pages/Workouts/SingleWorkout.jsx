@@ -1,6 +1,6 @@
 import Header from '../../common/Header/Header'
 import { Fragment, useEffect } from 'react'
-import bgImage from '../../../images/new-workout-bg.jpg'
+import bgImage from '../../../images/workout-bg.jpg'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import Alert from '../../ui/Alert/Alert'
 import { useNavigate } from 'react-router-dom'

@@ -19,14 +19,19 @@ const Header = () => {
 		<header className={styles.header}>
 			{pathname !== '/' ? (
 				<button type='button' onClick={() => navigate(-1)}>
-					<img src={arrowImage} alt='arrow' />
+					<img src={arrowImage} alt='arrow' width='29' height='23' />
 				</button>
 			) : (
 				<button
 					type='button'
 					onClick={() => navigate(isAuth ? '/profile' : '/auth')}
 				>
-					<img src={isAuth ? authImage : userImage} alt='Auth' height='40' />
+					<img
+						src={isAuth ? authImage : userImage}
+						alt='Auth'
+						height='40'
+						width='40'
+					/>
 				</button>
 			)}
 			<Hamburger />

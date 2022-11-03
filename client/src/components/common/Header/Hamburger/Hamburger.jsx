@@ -15,7 +15,7 @@ const Hamburger = () => {
 
 	const handleLogout = () => {
 		localStorage.removeItem('token')
-		setIsAuth(true)
+		setIsAuth(false)
 		setIsComponentVisible(false)
 	}
 
