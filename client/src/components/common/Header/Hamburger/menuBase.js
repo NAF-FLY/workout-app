@@ -1,14 +1,14 @@
 export const menu = [
 	{
-		title: 'Тренировки',
+		title: 'Workouts',
 		link: '/workouts',
 	},
 	{
-		title: 'Создать новую',
+		title: 'Create new',
 		link: '/new-workout',
 	},
 	{
-		title: 'Профиль',
+		title: 'Profile',
 		link: '/profile',
 	},
 ]

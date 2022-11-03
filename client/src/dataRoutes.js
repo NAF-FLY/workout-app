@@ -3,6 +3,8 @@ import Home from './components/pages/Home/Home'
 import NewExercise from './components/pages/NewExercise/NewExercise'
 import NewWorkout from './components/pages/NewWorkout/NewWorkout'
 import Profile from './components/pages/Profile/Profile'
+import ListWorkouts from './components/pages/Workouts/ListWorkouts'
+import SingleWorkout from './components/pages/Workouts/SingleWorkout'
 
 export const routes = [
 	{
@@ -35,18 +37,18 @@ export const routes = [
 		element: Profile,
 		auth: true,
 	},
-	// {
-	// 	path: '/workout/:id',
-	// 	exact: false,
-	// 	element: SingleWorkout,
-	// 	auth: true,
-	// },
-	// {
-	// 	path: '/workouts',
-	// 	exact: false,
-	// 	element: ListWorkouts,
-	// 	auth: true,
-	// },
+	{
+		path: '/workout/:id',
+		exact: false,
+		element: SingleWorkout,
+		auth: true,
+	},
+	{
+		path: '/workouts',
+		exact: false,
+		element: ListWorkouts,
+		auth: true,
+	},
 	// {
 	// 	path: '/exercise/:id',
 	// 	exact: false,
