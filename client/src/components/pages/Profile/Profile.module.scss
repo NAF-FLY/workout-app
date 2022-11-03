@@ -1,0 +1,19 @@
+@import '../../../scss/variables';
+
+.before_after {
+	display: flex;
+	justify-content: space-between;
+
+	img {
+		border-radius: 10px;
+	}
+
+	.heading {
+		margin-bottom: 0.5rem;
+	}
+}
+
+.center {
+	text-align: center;
+	margin: 6px 0 20px;
+}
