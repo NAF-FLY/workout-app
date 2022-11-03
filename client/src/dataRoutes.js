@@ -1,5 +1,6 @@
 import Auth from './components/pages/Auth/Auth'
 import Home from './components/pages/Home/Home'
+import NewExercise from './components/pages/NewExercise/NewExercise'
 import NewWorkout from './components/pages/NewWorkout/NewWorkout'
 
 export const routes = [
@@ -10,23 +11,23 @@ export const routes = [
 		auth: false,
 	},
 	{
+		path: '/new-workout',
+		exact: false,
+		element: NewWorkout,
+		auth: true,
+	},
+	{
 		path: '/auth',
 		exact: false,
 		element: Auth,
 		auth: false,
 	},
 	{
-		path: '/new-workout',
+		path: '/new-exercise',
 		exact: false,
-		element: NewWorkout,
+		element: NewExercise,
 		auth: true,
 	},
-	// {
-	// 	path: '/new-exercise',
-	// 	exact: false,
-	// 	element: NewExercise,
-	// 	auth: true,
-	// },
 	// {
 	// 	path: '/profile',
 	// 	exact: false,

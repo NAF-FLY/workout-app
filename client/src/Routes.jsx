@@ -4,6 +4,7 @@ import {
 	Routes as Switch,
 	Route,
 } from 'react-router-dom'
+import Error404 from './components/pages/404'
 // import NewWorkout from './components/pages/NewWorkout/NewWorkout'
 // import Auth from './components/pages/Auth/Auth'
 import { routes } from './dataRoutes'
@@ -15,21 +16,20 @@ const Routes = () => {
 	return (
 		<Router>
 			<Switch>
-				{routes.map(route => {
+				{routes.map((route, id) => {
 					if (route.auth && !isAuth) {
-						return console.log('404')
+						return false
 					}
 					return (
 						<Route
 							path={route.path}
 							exact={route.exact}
 							element={<route.element />}
+							key={id}
 						/>
 					)
 				})}
-				{/* <Route path='/' element={<Home />} />
-				<Route path='/auth' element={<Auth />} />
-				<Route path='/new-workout' element={<NewWorkout />} /> */}
+				<Route element={<Error404 />} />
 			</Switch>
 		</Router>
 	)
