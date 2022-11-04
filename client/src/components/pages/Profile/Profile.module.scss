@@ -3,14 +3,14 @@
 .before_after {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 	@media (max-width: $mobile) {
 		width: 90%;
 		margin: 0 auto;
+		justify-content: space-between;
 	}
 
 	> div {
-		width: 50%;
 		@media (max-width: $mobile) {
 			width: 48%;
 		}
