@@ -29,7 +29,7 @@ const Home = () => {
 		<Layout bgImage={bgImage}>
 			<div>
 				<Button
-					text='Добавить'
+					text='New'
 					type='main'
 					callback={() => navigate('/new-workout')}
 				/>

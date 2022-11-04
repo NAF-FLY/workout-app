@@ -89,6 +89,9 @@ img {
 		}
 	}
 
+	&__value-container {
+		text-align: start;
+	}
 	&__menu {
 		background-color: $purple !important;
 		border-radius: 10px !important;
@@ -164,4 +167,5 @@ img {
 	max-width: 560px;
 	width: 100%;
 	margin: 0 auto;
+	text-align: center;
 }
